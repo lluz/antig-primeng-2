@@ -3,15 +3,49 @@
 @import "primeicons/primeicons.css";
 
 /* Tailwind v4 Theme Configuration 
-  We define a custom 'brand' color here (Design Tokens). 
+  We define a custom 'brand' color here (Design Tokens: variables of a design system). 
   Usage in HTML: class="bg-brand-500" or class="text-brand-600"
+
+
+	Design tokens are the variables of a design system. 
+	They are the single source of truth for all 
+	visual properties (colors, spacing, typography, shadows) in your application.
+
+	Instead of hardcoding raw values (like hex codes or pixel values) 
+	throughout your app, you store them in "tokens" (names) and use those names everywhere.
 */
 @theme {
   --color-brand-50:  #f0f9ff;
   --color-brand-500: #0ea5e9; /* Sky blue example */
   --color-brand-600: #0284c7;
   --color-brand-900: #0c4a6e;
+
+
+
+	/* Define your "Source of Truth" in Tailwind */
+	--color-mybrand: #a855f7; /* Purple-500 */
 }
+
+
+
+/*
+PrimeNG doesnt know about your Tailwind theme configuration
+Map PrimeNGs token to your Tailwind theme token 
+*/
+:root {
+    /* Overriding the Semantic Token.
+       Now bg-primary and all PrimeNG default styled buttons will be Purple 
+       instead of the default color.
+    */
+    --p-primary-400: var(--color-mybrand);
+    --p-primary-300: #9333ea; /* Purple-600 (Hover) */
+
+    /* Changing the font family token 
+    */
+    --p-font-family: "Inter", sans-serif;
+}
+
+
 
 /* Layer Configuration 
   Ensures PrimeNG styles (primeng layer) can be overridden by 
@@ -29,13 +63,19 @@
 	.p-button {
 		@apply rotate-12 rounded-2xl;
 
-		&:hover {
+		/* &:hover {
 			@apply bg-orange-500;
-		}
+		} */
 
 		/* p-button inside p-card */
 		.p-card & {
+
 			@apply rotate-3 rounded-none;
+
+			&:hover {
+				@apply bg-orange-500;
+			}
+
 		}
 		
 	}
