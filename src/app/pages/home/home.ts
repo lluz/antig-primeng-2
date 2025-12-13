@@ -2,13 +2,16 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
+import { ShellRegular } from '../../components/shells/shell-regular';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, ButtonModule, CardModule],
+  imports: [RouterLink, ButtonModule, CardModule, ShellRegular],
   styleUrl: './home.css',
   template: `
-    <div class="card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+    <app-shell-regular>
+      
+      <div class="card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
       <h2 class="text-3xl font-bold mb-4">Home Page</h2>
       <p class="mb-4 text-gray-600 dark:text-gray-300">a Tailwind card with PrimeNG buttons inside.</p>
       <div class="flex gap-2">
@@ -38,6 +41,8 @@ import { ButtonModule } from 'primeng/button';
         </div>
       </div>
     </p-card>
+
+    </app-shell-regular>
   `,
 })
 export class Home {

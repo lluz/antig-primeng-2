@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { ToolbarModule } from 'primeng/toolbar';
 
 @Component({
   selector: 'app-shell-regular',
-  imports: [RouterOutlet, ToolbarModule],
+  imports: [ToolbarModule],
   styleUrl: './shell-regular.css',
   template: `
     <div class="min-h-screen flex flex-col bg-green-950">
@@ -19,7 +18,7 @@ import { ToolbarModule } from 'primeng/toolbar';
       </p-toolbar>
 
       <main class="flex-1 p-6 max-w-4xl mx-auto w-full">
-        <router-outlet></router-outlet>
+         <ng-content></ng-content>
       </main>
 
       <footer class="bg-surface-200 border-t border-surface-300 p-4 text-center">
