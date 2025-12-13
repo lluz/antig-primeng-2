@@ -1,3 +1,13 @@
 @import "tailwindcss";
 @import "tailwindcss-primeui";
 @import "primeicons/primeicons.css";
+
+/* here we can do the global override of the PrimeNG styles (using TailwindCSS) */
+.p-button {
+  @apply rotate-12 rounded-2xl!;
+
+  &:hover {
+    @apply bg-orange-500!;
+	}
+	
+}
