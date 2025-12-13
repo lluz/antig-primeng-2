@@ -5,8 +5,22 @@ import { ButtonModule } from 'primeng/button';
 @Component({
   selector: 'app-page2',
   imports: [RouterLink, ButtonModule],
-  templateUrl: './page2.html',
   styleUrl: './page2.css',
+  template: `
+    <div class="card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+
+      <h1 class="text-3xl font-bold underline">
+          Hello world!
+      </h1>
+      <h2 class="text-3xl font-bold mb-4">Page 2</h2>
+      <p class="mb-4 text-gray-600 dark:text-gray-300">This is the second page content area.</p>
+      <div class="mb-4 flex items-center gap-2">
+          <i class="pi pi-star-fill text-yellow-500 text-2xl"></i>
+          <span>Here is a PrimeIcon!</span>
+      </div>
+      <p-button label="Back to Home" icon="pi pi-arrow-left" routerLink="/" severity="secondary" />
+    </div>
+  `,
 })
 export class Page2 {
 }

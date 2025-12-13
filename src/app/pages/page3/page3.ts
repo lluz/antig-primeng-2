@@ -5,8 +5,13 @@ import { ButtonModule } from 'primeng/button';
 @Component({
   selector: 'app-page3',
   imports: [ButtonModule, RouterLink],
-  templateUrl: './page3.html',
   styleUrl: './page3.css',
+  template: `
+    <h1 class="text-3xl font-bold underline">
+      Hello world!
+      <p-button label="Back to Home" icon="pi pi-arrow-left" routerLink="/" severity="secondary" />
+    </h1>
+  `,
 })
 export class Page3 {
 
