@@ -2,12 +2,46 @@
 @import "tailwindcss-primeui";
 @import "primeicons/primeicons.css";
 
-/* here we can do the global override of the PrimeNG styles (using TailwindCSS) */
-.p-button {
-  @apply rotate-12 rounded-2xl!;
-
-  &:hover {
-    @apply bg-orange-500!;
-	}
-	
+/* Tailwind v4 Theme Configuration 
+  We define a custom 'brand' color here (Design Tokens). 
+  Usage in HTML: class="bg-brand-500" or class="text-brand-600"
+*/
+@theme {
+  --color-brand-50:  #f0f9ff;
+  --color-brand-500: #0ea5e9; /* Sky blue example */
+  --color-brand-600: #0284c7;
+  --color-brand-900: #0c4a6e;
 }
+
+/* Layer Configuration 
+  Ensures PrimeNG styles (primeng layer) can be overridden by 
+  Tailwind utilities (utilities layer).
+*/
+@layer components {
+
+	/* LL - here we can do the global override of the PrimeNG styles (using TailwindCSS) */
+	
+  /* Global override example: Make all cards slightly transparent */
+  .p-card {
+    @apply bg-white/10 backdrop-blur-3xl;
+  }
+
+	.p-button {
+		@apply rotate-12 rounded-2xl;
+
+		&:hover {
+			@apply bg-orange-500;
+		}
+
+		/* p-button inside p-card */
+		.p-card & {
+			@apply rotate-3 rounded-none;
+		}
+		
+	}
+
+}
+
+
+
+

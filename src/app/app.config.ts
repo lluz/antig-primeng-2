@@ -11,7 +11,14 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes, withComponentInputBinding()),
     providePrimeNG({
       theme: {
-        preset: Aura
+        preset: Aura,
+        options: {
+          // Critical for Tailwind v4: Insert 'primeng' layer correctly
+          cssLayer: {
+            name: 'primeng',
+            order: 'theme, base, primeng, components, utilities'
+          }
+        }
       }
     })
   ]

@@ -8,7 +8,7 @@ import { ToolbarModule } from 'primeng/toolbar';
   imports: [RouterOutlet, ToolbarModule],
   styleUrl: './shell.css',
   template: `
-    <div class="min-h-screen flex flex-col bg-surface-50">
+    <div class="min-h-screen flex flex-col bg-green-950">
       
       <p-toolbar styleClass="bg-brand-900 border-none rounded-none px-6 py-4">
         <ng-template pTemplate="start">
