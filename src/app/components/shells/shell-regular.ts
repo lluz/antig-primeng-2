@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ToolbarModule } from 'primeng/toolbar';
-// import { ButtonModule } from 'primeng/button';
 
 @Component({
-  selector: 'app-shell',
+  selector: 'app-shell-regular',
   imports: [RouterOutlet, ToolbarModule],
-  styleUrl: './shell.css',
+  styleUrl: './shell-regular.css',
   template: `
     <div class="min-h-screen flex flex-col bg-green-950">
       
@@ -32,5 +31,5 @@ import { ToolbarModule } from 'primeng/toolbar';
     </div>
   `,
 })
-export class Shell {
+export class ShellRegular {
 }
