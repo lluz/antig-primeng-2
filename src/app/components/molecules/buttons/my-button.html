@@ -1,0 +1,93 @@
+<!-- 
+  style logic example: "If I am inside an element with class .my-card, rotate me x degrees"
+  
+  Pure CSS Output: Tailwind compiles this into a standard CSS rule roughly looking like: .p-card .p-button-custom-class { rotate: 90deg; }. Browsers understand this perfectly.
+
+  No Encapsulation Issues: Since the class is added directly to the p-button (via styleClass), it sits in the global scope (or works through boundaries) more reliably than Angular's :host emulation.
+
+  Zero CSS Files: You keep the logic right where the component is defined.
+-->
+
+<p-button 
+  [label]="label" 
+  [icon]="icon" 
+  [severity]="variant"
+  [outlined]="isOutlined"
+  (onClick)="handleClick($event)"
+
+  styleClass="
+  
+     /* Generic Overrides */
+     relative overflow-visible
+     rotate-6 rounded-2xl 
+     transition-all duration-300
+
+     /* Generic Hover Overrides */
+     hover:bg-orange-500 
+     hover:border-orange-500
+
+     /* Generic Focus Overrides */
+     focus:bg-orange-700 
+     focus:border-orange-700
+
+     /* Generic Active Overrides */
+     active:bg-orange-900 
+     active:border-orange-900
+
+
+     /* Context-Specific Overrides */
+     in-[.my-card]:rotate-12 
+     in-[.my-very-very-specific-class]:rotate-45
+
+
+     /* Context-Specific Hover Overrides */
+        /* 'If inside .my-card, turn orange on hover' */
+     in-[.my-card]:hover:bg-green-500
+     in-[.my-card]:hover:border-green-500
+
+     /* Context-Specific Focus Overrides */
+        /* 'If inside .my-card, turn orange on focus' */
+     in-[.my-card]:focus:bg-yellow-500
+     in-[.my-card]:focus:border-yellow-500
+
+     /* Context-Specific Active Overrides */
+        /* 'If inside .my-card, turn orange on active' */
+     in-[.my-card]:active:bg-gray-500
+     in-[.my-card]:active:border-gray-500
+     
+
+     /* The ::after Element (Red Dot Example) */
+     after:content-[''] 
+     after:absolute 
+     after:-top-2 
+     after:-right-2 
+     after:w-4 
+     after:h-4 
+     after:bg-yellow-500 
+     after:rounded-full 
+     after:border-2 
+     after:border-white
+
+     
+     /* Context-Specific Overrides for ::after */
+     /* 'If inside .my-card, make the dot Blue' */
+     in-[.my-card]:after:bg-blue-500
+     
+     /* 'If inside specific class, hide the dot' */
+     in-[.my-very-very-specific-class]:after:bg-red-500
+     in-[.my-very-very-specific-class]:after:rounded-none 
+     in-[.my-very-very-specific-class]:after:opacity-50 
+
+
+     /* ALSO AVAILABLE --- Override the PrimeNG Variable directly for this button */
+     /*
+     ****************** these SHOULD be used instead of overriding with tailwind classes
+
+     [--p-button-primary-hover-background:theme(--color-fuchsia-600)]
+     [--p-button-primary-hover-border-color:theme(--color-fuchsia-600)]
+     */
+     [--p-button-padding-x:3rem]
+     [--p-button-padding-y:1rem]
+
+  "
+/>

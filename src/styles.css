@@ -56,29 +56,32 @@ Map PrimeNGs token to your Tailwind theme token
 	/* LL - here we can do the global override of the PrimeNG styles (using TailwindCSS) */
 	
   /* Global override example: Make all cards slightly transparent */
-  .p-card {
-    @apply bg-white/10 backdrop-blur-3xl;
-  }
+  /* *********************** commented because now the there is a custom components 'my-card' + 'my-button'.
+     *********************** leave the default primeng styles as they come */
 
-	.p-button {
+  /* .p-card {
+    @apply bg-white/10 backdrop-blur-3xl;
+  } */
+
+	/* .p-button {
 		@apply rotate-12 rounded-2xl;
 
-		/* &:hover {
+		&:hover {
 			@apply bg-orange-500;
-		} */
+		}
 
-		/* p-button inside p-card */
+		
 		.p-card & {
 
 			@apply rotate-3 rounded-none;
 
 			&:hover {
-				@apply bg-orange-500;
+				@apply bg-orange-700;
 			}
 
 		}
 		
-	}
+	} */
 
 }
 
